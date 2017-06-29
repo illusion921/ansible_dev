@@ -1,0 +1,10 @@
+#!/bin/bash
+thepid=`{{ j2_java_home }}/bin/jps -l | grep {{ j2_process_name }} | awk '{print $1}'`
+
+if [ $thepid > 0 ]
+  then
+    echo "kill old pid $thepid"
+    kill -9 $thepid
+else
+  echo "{{ j2_process_name }} not start"
+fi

@@ -1,0 +1,24 @@
+v3.datasource.url=jdbc:mysql://{{ j2_mysql_slave_dns }}:{{ j2_mysql_slave_port }}/?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+v3.datasource.username={{ j2_mysql_slave_user }}
+v3.datasource.password={{ j2_mysql_slave_passwd }}
+
+item.datasource.url=jdbc:mysql://{{ j2_mysql_master_dns }}:{{ j2_mysql_master_port }}/?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+item.datasource.username={{ j2_mysql_master_user }}
+item.datasource.password={{ j2_mysql_master_passwd }}
+
+dw.datasource.url=jdbc:mysql://{{ j2_mysql_114_dns }}:{{ j2_mysql_114_port }}/?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+dw.datasource.username={{ j2_mysql_114_user }}
+dw.datasource.password={{ j2_mysql_114_passwd }}
+
+dm.datasource.url=jdbc:mysql://{{ j2_mysql_99_ip }}:{{ j2_mysql_99_port }}/?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+dm.datasource.username={{ j2_mysql_99_user }}
+dm.datasource.password={{ j2_mysql_99_passwd }}
+
+mr.datasource.url=jdbc:mysql://{{ j2_mysql_slave_dns }}:{{ j2_mysql_slave_port }}/?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+mr.datasource.username={{ j2_mysql_slave_user }}
+mr.datasource.password={{ j2_mysql_slave_passwd }}
+
+
+pool.initialSize=1
+pool.minIdle=1
+pool.maxActive=20

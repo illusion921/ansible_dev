@@ -1,0 +1,46 @@
+system.env=pre_prd
+system.yaoyi.web.httpPrefix=http://127.0.0.1:8080/
+system.attachments.prefix=http://192.168.0.244:8080/
+
+system.mall.promotion.url.hotGoods=http://openapisoa.ypzdw.info/Promotions/HotMessage
+system.mall.promotion.url.groupBuy=http://openapisoa.ypzdw.info/Promotions/GroupBuyMessage
+system.mall.imgUrl.prefix=https://static.ypzdw.com/Handler/FileHandler.ashx?fid=
+
+scan.log.url=http://192.168.0.246:8888/da/log/log
+scan.data.ip=192.168.2.27
+scan.data.port=3456
+
+## shiro
+shiro.session.timeout=1800000
+shiro.session.validate.timespan=1800000
+
+system.domain.protocol=http
+system.domain.hostName=ypzdw.info
+system.domain.staticPrefix=static
+system.domain.shopPrefix=www
+system.domain.passPrefix=pass
+system.domain.oldCrmPrefix=khgx
+system.domain.salesPrefix=sales
+system.domain.passportDomain=http://passport.ypzdw.info
+system.domain.basePath=http://crm.ypzdw.info/miser
+system.domain.crmDomain=http://crm.ypzdw.info
+system.currentEnvironment=pre_prd
+system.domain.exhibitDomain=http://exhibit.ypzdw.info
+
+## 上月历史价格
+report.prevMonth.goods.avgPrice.Id=MjAxNjAwMDAwAhw1HMDEwMzMxMjE1
+
+## 兼容原有DotNet促销系统
+system.compatibleModel=true
+
+## 同步促销数据接口
+system.mall.promotion.url.syncOldPromotionData=http://openapisoa.ypzdw.info/Promotions/SyncPromoGoods
+system.mall.promotion.url.syncAuditOldPromotionData=http://openapisoa.ypzdw.info/Promotions/SyncAuditPromoGoods
+system.mall.promotion.url.syncOldPromotionTopicPicData=http://openapisoa.ypzdw.info/Promotions/SyncPromoGoodsTopicPic
+system.mall.promotion.url.syncDisablePromoGoodsData=http://openapisoa.ypzdw.info/Promotions/SyncDisablePromoGoods
+
+## 多系统SSO时需使用的统一域名，目前使用一级域名
+sso.domain=ypzdw.info
+
+## 临时上传文件目录
+system.upload.tempDir=/opt/tools/miser/miser/tmp/

@@ -1,0 +1,8 @@
+#-------必填项-----------------------#
+bootstrap.servers={{ j2_kafka_dns }}:{{ j2_kafka_port }}
+#------- consumer(可选项)----------#
+enable.auto.commit=true
+auto.commit.interval.ms=1000
+session.timeout.ms=30000
+#------ 写应用名称 ------#
+group.id=canal-event-consumer-product-groundhog

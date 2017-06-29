@@ -1,0 +1,9 @@
+datasource.type=mysql
+
+oldEc.datasource.url=jdbc:mysql://{{ j2_mysql_dns }}:{{ j2_mysql_port }}/ypzdw_busi_v3?autoReconnect\=true&amp;useUnicode\=true&amp;characterEncoding\=utf8
+oldEc.datasource.username={{ j2_mysql_user }}
+oldEc.datasource.password={{ j2_mysql_passwd }}
+
+passport.datasource.url=jdbc:mysql://{{ j2_mysql_yaoyi_dns }}:{{ j2_mysql_yaoyi_port }}/stage_groundhog?autoReconnect\=true&amp;useUnicode\=true&amp;characterEncoding\=utf8
+passport.datasource.username={{ j2_mysql_yaoyi_user }}
+passport.datasource.password={{ j2_mysql_yaoyi_passwd }}

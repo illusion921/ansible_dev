@@ -1,0 +1,34 @@
+---
+app_full_name: phoenix webapp portal shop
+app_name: phoenix-webapp-portal-shop
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: phoenix-webapp-web/phoenix-webapp-web-portal/phoenix-webapp-web-portal-shop/target
+archive_file_name: phoenix-webapp-web-portal-shop-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: shop
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+tomcat_shutdown_port: 8181
+tomcat_connector_http_port: 8180
+tomcat_connector_ajp_port: 8182
+
+j2_zk_dns: "{{ ZK_DNS }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_mysql_dns: "{{ MYSQL_YAOYI_DNS }}"
+j2_mysql_port: "{{ MYSQL_YAOYI_PORT }}"
+j2_mysql_user: "{{ MYSQL_YAOYI_USERNAME }}"
+j2_mysql_passwd: "{{ MYSQL_YAOYI_PASSWD }}"
+
+j2_redis_host: "{{ REDIS_IP }}"
+j2_redis_port: "{{ REDIS_PORT }}"
+j2_redis_passwd: "{{ REDIS_PASSWD1 }}"
+
+doc_path: /
+doc_base: shop
+
+config_list:
+  - application
+  - dubbo
+  - jdbc
+  - redis

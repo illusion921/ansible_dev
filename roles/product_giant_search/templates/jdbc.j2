@@ -1,0 +1,17 @@
+datasource.driverClassName=com.mysql.jdbc.Driver
+datasource.url=jdbc:mysql://{{ j2_mysql_master_dns }}:{{ j2_mysql_master_port }}/?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+datasource.username={{ j2_mysql_master_user }}
+datasource.password={{ j2_mysql_master_passwd }}
+
+dw.datasource.url=jdbc:mysql://{{ j2_mysql_114_dns }}:{{ j2_mysql_114_port }}/?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+dw.datasource.username={{ j2_mysql_114_user }}
+dw.datasource.password={{ j2_mysql_114_passwd }}
+
+mr.datasource.url=jdbc:mysql://{{ j2_mysql_slave_dns }}:{{ j2_mysql_slave_port }}/?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+mr.datasource.username={{ j2_mysql_slave_user }}
+mr.datasource.password={{ j2_mysql_slave_passwd }}
+
+pool.initialSize=3
+pool.minIdle=3
+pool.maxActive=20
+

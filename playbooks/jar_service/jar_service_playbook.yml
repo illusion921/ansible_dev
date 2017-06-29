@@ -1,0 +1,31 @@
+---
+- name: create service folder if not exist
+  file:
+    path={{ SERVICE_LOCATION }}
+    state=directory
+    mode=0755
+
+- name: create shell folder if not exist
+  file:
+    path={{ SERVICE_LOCATION }}/{{ SHELL_NAME }}
+    state=directory
+    mode=0755
+
+- name: stop service--> {{ project_name }}
+  include: shutdown_service.yml
+
+- name: delete jar file--> {{ dest_jar_file_path }}
+  file:
+    path={{ dest_jar_file_path }}
+    state=absent
+
+- name: copy latest jar file to service folder--> {{ workspace_path }}/{{ jar_file_path }}/{{ jar_file_name }} -> {{ SERVICE_LOCATION }}
+  copy:
+    src={{ workspace_path }}/{{ jar_file_path }}/{{ jar_file_name }}
+    dest={{ SERVICE_LOCATION }}
+    owner={{ service_user }}
+    group={{ service_group }}
+    mode=0755
+
+- name: start service--> {{ dest_jar_file_path }}
+  include: startup_service.yml

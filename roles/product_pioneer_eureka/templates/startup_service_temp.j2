@@ -1,0 +1,10 @@
+#!/bin/bash
+export LANG="en_US.UTF-8"
+source /etc/profile
+
+cd ../
+
+echo "execute {{ j2_service_name }} start..................."
+nohup {{ j2_java_home }}/bin/java -server -Xms64m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=128m -jar {{ j2_jar_file_path }} -XX:+UseConcMarkSweepGC &>>{{ j2_logs_file }} 2>&1 &
+echo '{{ j2_service_name }} process information:' `{{ j2_java_home }}/bin/jps -l | grep '{{ j2_process_name }}'`
+echo "execute {{ j2_service_name }} finish..................."

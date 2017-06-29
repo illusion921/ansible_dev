@@ -1,0 +1,14 @@
+---
+- name: init app {{ APP_LOCATION }}
+  unarchive:
+    src: "{{ PUBLISH_TOOL_HOME }}/{{ TOMCAT_ARTIFACT }}"
+    dest: "{{ TOMCAT_LOCATION }}"
+
+- name: rename tomcat folder to {{ app_name }}
+  command: mv {{ TOMCAT_LOCATION }}/{{ TOMCAT_UNARCHIVE_NAME }} {{ TOMCAT_LOCATION }}/{{ app_name }}
+
+- name: create custom app root folder
+  file:
+    path={{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}
+    state=directory
+    mode=0755

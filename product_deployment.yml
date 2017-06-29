@@ -1,0 +1,147 @@
+---
+- name: Deploy apps and services on new b2b-1 AWS product  machine.
+  hosts: newb2b-1
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+    - "global_vars/encrypt.yml"
+  roles:
+  #SERVICE
+    - {role: product_groundhog_product_tool_server, when: "tag == 'groundhog-product-tool-server'"}
+    - {role: product_giant_search_product_server_sync, when: "tag == 'giant-search-product-server-sync'"}
+  #APP
+#    - {role: product_ceres, when: "tag == 'ceres'"}
+
+
+
+- name: Deploy apps and services on new b2b-2 AWS product  machine.
+  hosts: newb2b-2
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+    - "global_vars/encrypt.yml"
+  roles:
+  #SERVICE
+    - {role: product_groundhog_product_sync, when: "tag == 'groundhog-product-sync'"}
+  #APP
+#    - {role: product_ceres, when: "tag == 'ceres'"}
+
+
+
+
+- name: Deploy apps and services on new b2b AWS product  machine.
+  hosts: new-b2b
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+    - "global_vars/encrypt.yml"
+  roles:
+  #APP
+    - {role: product_ceres, when: "tag == 'ceres'"}
+    - {role: product_icebreak_yaoshangbao_rest_portal, when: "tag == 'ysb-rest-portal'"}
+    - {role: product_phoenix_webapp_boss, when: "tag == 'phoenix-webapp-boss'"}
+    - {role: product_phoenix_pipe_console, when: "tag == 'phoenix-pipe-console'"}
+    - {role: product_phoenix_pipe_host_admin, when: "tag == 'phoenix-pipe-host-admin'"}
+    - {role: product_phoenix_webapp_console, when: "tag == 'phoenix-webapp-console'"}
+    - {role: product_ywcrm, when: "tag == 'ywcrm'"}
+    - {role: product_kehuguanxi, when: "tag == 'khgx'"}
+    - {role: product_repairman_tools, when: "tag == 'repairman'"}
+    - {role: product_miser_promotion, when: "tag == 'miser-promotion'"}
+    - {role: product_phoenix_webapp_portal_shop, when: "tag == 'phoenix-webapp-portal-shop'"}
+    - {role: product_hermes_admin, when: "tag == 'hermes-admin'"}
+  #SERVICE
+    - {role: product_icebreak_yaoshangbao_host_admin, when: "tag == 'ysb-host-admin'"}
+    - {role: product_phoenix_cert_exchange, when: "tag == 'phoenix-cert-exchange'"}
+    - {role: product_phoenix_pipe_host_sync, when: "tag == 'phoenix-pipe-host-sync'"}
+    - {role: product_groundhog_org, when: "tag == 'groundhog-org'"}
+    - {role: product_groundhog_product, when: "tag == 'groundhog-product'"}
+    - {role: product_phoenix_metadata, when: "tag == 'phoenix-metadata'"}
+    - {role: product_phoenix_marketing_dubbo, when: "tag == 'phoenix-marketing-dubbo'"}
+    - {role: product_phoenix_gateway_dubbo, when: "tag == 'phoenix-gateway-dubbo'"}
+    - {role: product_phoenix_yop_server, when: "tag == 'phoenix-yop-server'"}
+    - {role: product_giant_search_product_server_app, when: "tag == 'giant-search-product-server-app'"}
+
+
+
+
+
+- name: Deploy apps and services on wireless appa and appb AWS product  machine.
+  hosts: wireless
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+    - "global_vars/encrypt.yml"
+  roles:
+  #SERVICE
+    - {role: product_pioneer_eureka, when: "tag == 'pioneer-eureka'"}
+    - {role: product_pioneer_schedule, when: "tag == 'pioneer-schedule'"}
+    - {role: product_pioneer_zuul, when: "tag == 'pioneer-zuul'"}
+  #APP
+    - {role: product_zhongduanbao, when: "tag == 'zdb'"}
+    - {role: product_groundhog_passport, when: "tag == 'groundhog-passport'"}
+
+
+
+- name: Deploy apps and services on data canel es1 AWS product  machine.
+  hosts: data-es1
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+    - "global_vars/encrypt.yml"
+  roles:
+  #SERVICE
+    - {role: product_giant_recommand, when: "tag == 'giant-recommand'"}
+    - {role: product_giant_search_server_sync, when: "tag == 'giant-search-server-sync'"}
+    - {role: product_giant_search_server_sync_replace_file, when: "tag == 'giant-search-server-sync-replace-file'"}
+
+
+- name: Deploy apps and services on data canel es2 AWS product  machine.
+  hosts: data-es2
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+    - "global_vars/encrypt.yml"
+  roles:
+  #SERVICE
+#    - {role: product_phoenix_item, when: "tag == 'phoenix-item-es2-gray'"}
+
+
+
+- name: Deploy apps and services on data canel es1 and es2 AWS product  machine.
+  hosts: data-es12
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+    - "global_vars/encrypt.yml"
+  roles:
+  #SERVICE
+    - {role: product_skyline_bscope, when: "tag == 'skyline-bscope'"}
+    - {role: product_phoenix_pontoon, when: "tag == 'phoenix-pontoon'"}
+    - {role: product_phoenix_item, when: "tag == 'phoenix-item'"}
+    - {role: product_phoenix_cert, when: "tag == 'phoenix-cert'"}
+    - {role: product_giant_realtime_server, when: "tag == 'giant-realtime'"}
+    - {role: product_giant_search, when: "tag == 'giant-search'"}
+  #APP
+    - {role: product_giant_report, when: "tag == 'giant-report'"}
+

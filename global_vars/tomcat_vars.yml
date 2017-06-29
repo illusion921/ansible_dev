@@ -1,0 +1,21 @@
+---
+TOMCAT_LOCATION: "{{ SITE_HOME }}/tomcat"
+APP_LOCATION: "{{ TOMCAT_LOCATION }}/{{ app_name }}"
+TOMCAT_ROOT_NAME: ROOT
+#put project in webapps, tomcat will start it automatically and custom url path is difficult,so we create ywkj folder under tomcat root folder and put project under ywkj.
+TOMCAT_WEBAPPS_NAME: ywkj
+TOMCAT_CONF_NAME: conf
+TOMCAT_BIN_NAME: bin
+TOMCAT_TEMP_NAME: temp
+CATALINA_PID: "{{ APP_LOCATION }}/{{ TOMCAT_BIN_NAME }}/CATALINA_PID"
+
+SHUTDOWN_SH: shutdown.sh
+STARTUP_SH: startup.sh
+CATALINA_SH: catalina.sh
+SERVER_XML: server.xml
+SETENV_SH: setenv.sh
+NOHUP_OUT: nohup.out
+WEB_XML: web.xml
+
+TOMCAT_ARTIFACT: apache-tomcat-7.0.65.tar.gz
+TOMCAT_UNARCHIVE_NAME: apache-tomcat-7.0.65

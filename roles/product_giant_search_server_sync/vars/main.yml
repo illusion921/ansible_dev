@@ -1,0 +1,60 @@
+---
+project_name: giant search server sync
+service_name: giant-search-server-sync
+archive_file_path: giant-search-server/giant-search-server-sync/target
+archive_file_name: giant-search-server-sync-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: giant-search-server-sync
+
+
+#Jinja2 template vars
+j2_java_home: "{{ JAVA7_HOME }}"
+j2_process_name: com.kom.giant.search.sync.SyncTaskStarter
+j2_service_name: "{{ service_name }}"
+
+j2_canal_host: "{{ CANAL_HOST }}"
+j2_canal_port: "{{ CANAL_PORT }}"
+j2_canal_user: "{{ CANAL_USER }}"
+j2_canal_passwd: "{{ CANAL_PASSWD }}"
+
+j2_zk_dns1: "{{ ZK_DNS1 }}"
+j2_zk_dns2: "{{ ZK_DNS2 }}"
+j2_zk_dns3: "{{ ZK_DNS3 }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_elastic_name: "{{ ELASTIC_NAME_SEARCH }}"
+j2_elastic_dns1: "{{ ELASTIC_DNS1 }}"
+j2_elastic_dns2: "{{ ELASTIC_DNS2 }}"
+j2_elastic_port: "{{ ELASTIC_PORT }}"
+
+j2_mysql_slave_dns: "{{ MYSQL_SLAVE_DNS }}"
+j2_mysql_slave_port: "{{ MYSQL_PORT }}"
+j2_mysql_slave_user: "{{ MYSQL_SLAVE_USERNAME1 }}"
+j2_mysql_slave_passwd: "{{ MYSQL_SLAVE_PASSWD1 }}"
+
+j2_mysql_master_dns: "{{ MYSQL_MASTER_DNS }}"
+j2_mysql_master_port: "{{ MYSQL_PORT }}"
+j2_mysql_master_user: "{{ MYSQL_MASTER_USERNAME1 }}"
+j2_mysql_master_passwd: "{{ MYSQL_MASTER_PASSWD1 }}"
+
+j2_mysql_114_dns: "{{ MYSQL_114_DNS }}"
+j2_mysql_114_port: "{{ MYSQL_114_PORT }}"
+j2_mysql_114_user: "{{ MYSQL_114_USERNAME1 }}"
+j2_mysql_114_passwd: "{{ MYSQL_114_PASSWD1 }}"
+
+j2_mysql_99_ip: "{{ MYSQL_99_IP }}"
+j2_mysql_99_port: "{{ MYSQL_99_PORT }}"
+j2_mysql_99_user: "{{ MYSQL_99_USERNAME }}"
+j2_mysql_99_passwd: "{{ MYSQL_99_PASSWD }}"
+
+j2_redis_ip: "{{ REDIS_HOST }}"
+j2_redis_port: "{{ REDIS_PORT }}"
+j2_redis_passwd: "{{ REDIS_PASSWD }}"
+
+config_list:
+  - dubbo
+  - elasticsearch
+  - jdbc
+  - redis
+  - canal
+
+

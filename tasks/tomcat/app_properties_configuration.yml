@@ -1,0 +1,9 @@
+- name: copy config files
+  template:
+    src={{item}}.j2
+    dest={{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ unarchive_file_name }}/WEB-INF/classes/{{ item }}.properties
+    owner={{ tomcat_user }}
+    group={{ tomcat_group }}
+    mode=0644
+  with_items:
+    - "{{ config_list }}"

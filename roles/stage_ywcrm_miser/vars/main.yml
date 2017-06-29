@@ -1,0 +1,43 @@
+---
+app_full_name: ywcrm miser
+app_name: ywcrm-miser
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: ywcrm-miser-web/target
+archive_file_name: ywcrm-miser-web.tar.gz
+unarchive_file_name: ywcrm-miser
+
+tomcat_shutdown_port: 8791
+tomcat_connector_http_port: 8790
+tomcat_connector_ajp_port: 8792
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+j2_mysql_dns: "{{ MYSQL_MASTER_DNS }}"
+j2_mysql_port: "{{ MYSQL_PORT }}"
+j2_mysql_user: "{{ MYSQL_MASTER_USERNAME1 }}"
+j2_mysql_passwd: "{{ MYSQL_MASTER_PASSWD1 }}"
+
+j2_mysql_slave_dns: "{{ MYSQL_SLAVE_DNS }}"
+j2_mysql_slave_port: "{{ MYSQL_PORT }}"
+j2_mysql_slave_user: "{{ MYSQL_SLAVE_USERNAME }}"
+j2_mysql_slave_passwd: "{{ MYSQL_SLAVE_PASSWD }}"
+
+j2_zk_ip: "{{ ZK_IP }}"
+j2_zk_dns: "{{ ZK_DNS }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_kafka_dns: "{{ KAFKA_DNS }}"
+j2_kafka_port: "{{ KAFKA_PORT }}"
+
+j2_redis_host: "{{ REDIS_IP }}"
+j2_redis_port: "{{ REDIS_PORT }}"
+j2_redis_passwd: "{{ REDIS_PASSWD1 }}"
+
+doc_path: marketing
+doc_base: ywcrm-miser
+
+config_list:
+  - application
+  - jdbc
+  - dubbo
+  - redis

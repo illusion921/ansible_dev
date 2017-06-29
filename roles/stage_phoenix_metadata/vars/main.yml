@@ -1,0 +1,28 @@
+---
+project_name: phoenix metadata
+service_name: phoenix-metadata
+archive_file_path: provider/target
+archive_file_name: phoenix-metadata-provider.tar.gz
+unarchive_file_name: phoenix-metadata
+
+jenkins_name: phoenix-metadata
+
+#Jinja2 template vars
+j2_java_home: "{{ JAVA8_HOME }}"
+#j2_process_name: com.pharmaking.metadata.Startup
+j2_process_name: com.pharmaking.phoenix.metadata.Startup
+j2_service_name: "{{ service_name }}"
+
+j2_zk_ip: "{{ ZK_IP }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_mysql_dns: "{{ MYSQL_SLAVE_DNS }}"
+j2_mysql_port: "{{ MYSQL_PORT }}"
+j2_mysql_user: "{{ MYSQL_SLAVE_USERNAME }}"
+j2_mysql_passwd: "{{ MYSQL_SLAVE_PASSWD }}"
+
+config_list:
+  - dubbo
+  - jdbc
+
+

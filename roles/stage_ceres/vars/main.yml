@@ -1,0 +1,41 @@
+---
+app_full_name: zhong chuang kong jian
+app_name: ceres
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: business-web/target
+archive_file_name: business-web-1.0-SNAPSHOT.tar.gz
+unarchive_file_name: ceres
+
+
+#conf/server.xml
+tomcat_shutdown_port: 8881
+tomcat_connector_http_port: 8880
+tomcat_connector_ajp_port: 8882
+
+doc_path: /
+doc_base: ceres
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+j2_zk_dns: "{{ ZK_DNS }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_kafka_dns: "{{ KAFKA_DNS }}"
+j2_kafka_port: "{{ KAFKA_PORT }}"
+
+j2_mysql_dns: "{{ MYSQL_SLAVE_DNS }}"
+j2_mysql_port: "{{ MYSQL_PORT }}"
+j2_mysql_user: "{{ MYSQL_SLAVE_USERNAME }}"
+j2_mysql_passwd: "{{ MYSQL_SLAVE_PASSWD }}"
+
+j2_mongo_db_ip: "{{ MONGO_IP }}"
+j2_mongo_db_port: "{{ MONGO_PORT }}"
+j2_mongo_db_user: "{{ MONGO_USERNAME }}"
+j2_mongo_db_passwd: "{{ MONGO_PASSWD }}"
+
+config_list:
+  - application
+  - mongo_db
+  - jdbc
+  - kafka
+

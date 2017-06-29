@@ -1,0 +1,29 @@
+---
+project_name: skyline bscope
+service_name: skyline-bscope
+archive_file_path: skyline-bscope-app/skyline-bscope-app-server/target
+archive_file_name: skyline-bscope-app-server-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: skyline-bscope-app-server
+
+#Jinja2 template vars
+j2_java_home: "{{ JAVA7_HOME }}"
+j2_process_name: com.kom.skyline.bscope.server.ServerStart
+j2_service_name: "{{ service_name }}"
+
+j2_zk_ip: "{{ ZK_DNS }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_mysql_dns: "{{ MYSQL_SLAVE_DNS }}"
+j2_mysql_port: "{{ MYSQL_PORT }}"
+j2_mysql_user: "{{ MYSQL_SLAVE_USERNAME }}"
+j2_mysql_passwd: "{{ MYSQL_SLAVE_PASSWD }}"
+
+j2_redis_ip: "{{ REDIS_IP }}"
+j2_redis_port: "{{ REDIS_PORT }}"
+j2_redis_passwd: "{{ REDIS_PASSWD1 }}"
+
+config_list:
+  - dubbo
+  - jdbc
+  - redis
+

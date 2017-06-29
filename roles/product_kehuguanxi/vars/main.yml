@@ -1,0 +1,13 @@
+---
+app_full_name: ke hu guan xi
+app_name: kehuguanxi
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: spread-web/target
+archive_file_name: spread-web-1.0-SNAPSHOT.tar.gz
+unarchive_file_name: khgx
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+tomcat_shutdown_port: 8051
+tomcat_connector_http_port: 8050
+tomcat_connector_ajp_port: 8052

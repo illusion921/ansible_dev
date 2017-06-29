@@ -1,0 +1,41 @@
+---
+#publish the project self
+#/home/244/apache-tomcat/webapps/jenkins/jobs/publish_ansible_deployment_project/workspace
+
+- hosts: 127.0.0.1
+  gather_facts: no
+
+  tasks:
+  - name: archive latest ansible playbook locally
+    archive:
+      path: /home/uj/workspaces/devops/ansible/deployment/
+      dest: /tmp/deployment.tgz
+
+- hosts: site01
+  gather_facts: no
+
+  tasks:
+#  - name: transfer tgz file to remote machine
+#    copy:
+#      src: /tmp/deployment.tgz
+#      dest: /ywkj/publish/package/
+#      owner: unclejet
+#      group: unclejet
+#      mode: 0755
+  - name: delete old folder
+    file:
+      path: /ywkj/publish/package/deployment
+      state: absent
+
+  - name: prepare folder
+    file:
+      path: /ywkj/publish/package/deployment
+      state: directory
+
+
+  - name: unarchive ansible playbook
+    unarchive:
+      src: /tmp/deployment.tgz
+      dest: /ywkj/publish/package/deployment/
+      owner: unclejet
+      group: unclejet

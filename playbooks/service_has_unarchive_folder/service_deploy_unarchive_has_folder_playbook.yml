@@ -1,0 +1,58 @@
+---
+- name: create service folder if not exist
+  file:
+    path={{ SERVICE_LOCATION }}
+    state=directory
+    mode=0755
+
+- name: create shell folder if not exist
+  file:
+    path={{ SERVICE_LOCATION }}/{{ SHELL_NAME }}
+    state=directory
+    mode=0755
+
+- name: stop {{ project_name }}
+  include: shutdown_service.yml
+
+- name: copy package from {{ workspace_path }}/{{ archive_file_path }} to {{ SERVICE_LOCATION }}
+  copy:
+    src={{ workspace_path }}/{{ archive_file_path }}/{{ archive_file_name }}
+    dest={{ SERVICE_LOCATION }}
+
+- name: unarchive {{ SERVICE_LOCATION }}/{{ archive_file_name }}
+  unarchive:
+    src: "{{ SERVICE_LOCATION }}/{{ archive_file_name }}"
+    dest: "{{ SERVICE_LOCATION }}"
+    exclude: "{{ exclude_list1 }}"
+    remote_src: True
+
+- name: delete old file
+  file:
+    path={{ SERVICE_LOCATION }}/{{ item }}
+    state=absent
+  with_items:
+    - "{{ folder_list1 }}"
+    - "{{ archive_file_name }}"
+
+- name: copy latest files
+  command: cp -r {{ SERVICE_LOCATION }}/{{ unarchive_file_name }}/{{ item }} {{ SERVICE_LOCATION }}
+  with_items:
+    - "{{ folder_list1 }}"
+
+- name: copy config files
+  template:
+    src={{item}}.j2
+    dest={{ SERVICE_LOCATION }}/classes/{{ item }}.properties
+    owner={{ service_user }}
+    group={{ service_group }}
+    mode=0644
+  with_items:
+    - "{{ config_list }}"
+
+- name: delete useless folder
+  file:
+    path={{ SERVICE_LOCATION }}/{{ unarchive_file_name }}
+    state=absent
+
+- name: startup service {{ service_name }}
+  include: startup_service.yml

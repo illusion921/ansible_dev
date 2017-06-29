@@ -1,0 +1,11 @@
+item.datasource.url=jdbc:mysql://{{ j2_mysql_dns }}:{{j2_mysql_port}}/?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+item.datasource.username={{ j2_mysql_user }}
+item.datasource.password={{ j2_mysql_passwd }}
+
+pipe.datasource.url=jdbc:mysql://{{ j2_mysql_pipe_dns }}:{{j2_mysql_port}}/?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+pipe.datasource.username={{ j2_mysql_pipe_user }}
+pipe.datasource.password={{ j2_mysql_pipe_passwd }}
+
+pool.initialSize=1
+pool.minIdle=1
+pool.maxActive=20

@@ -1,0 +1,6 @@
+- name: app is running or not
+  include: app_is_running.yml
+
+- name: stop app
+  command: "{{APP_LOCATION}}/{{ TOMCAT_BIN_NAME }}/{{ SHUTDOWN_SH }}"
+  when: app_is_running.stdout_lines[0] == "is running"

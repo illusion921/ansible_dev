@@ -1,0 +1,6 @@
+#!/bin/bash
+java={{ j2_java_home }}/bin/java
+jps={{ j2_java_home }}/bin/jps
+
+nohup ${java} -jar -Ddubbo.spring.config=META-INF/spring/appContext.xml -Duser.timezone=Asia/Shanghai -Dfile.encoding=UTF-8 {{ j2_jar_file_path }} 1>> {{ j2_service_home }}/nohop.out 2>&1 &
+echo '{{ j2_service_name }} process information:' `${jps} -l | grep '{{ j2_process_name }}'`

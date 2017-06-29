@@ -1,0 +1,19 @@
+---
+app_full_name: groundhog passport
+app_name: groundhog_passport
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: groundhog-passport/target
+archive_file_name: groundhog-passport-1.0-SNAPSHOT.tar.gz
+unarchive_file_name: passport
+
+#conf/server.xml
+tomcat_shutdown_port: 8061
+tomcat_connector_http_port: 8060
+tomcat_connector_ajp_port: 8062
+
+doc_path: /
+doc_base: passport
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+

@@ -1,0 +1,8 @@
+---
+- name: copy setenv.sh to {{APP_LOCATION}}/bin/
+  template:
+    src=setenv.j2
+    dest={{ APP_LOCATION }}/{{ TOMCAT_BIN_NAME }}/{{ SETENV_SH }}
+    owner={{ tomcat_user }}
+    group={{ tomcat_group }}
+    mode=0755

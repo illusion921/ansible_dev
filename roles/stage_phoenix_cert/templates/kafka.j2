@@ -1,0 +1,14 @@
+#-------必填项-----------------------#
+kafka.zookeeper={{ j2_zk_ip }}:{{j2_zk_port}}
+bootstrap.servers={{ j2_kafka_dns }}:{{ j2_kafka_port }}
+#------- producer(可选项)------------#
+acks=1
+retries=5
+batch.size=0
+linger.ms=0
+buffer.memory=33554432
+#------- consumer(可选项)----------#
+enable.auto.commit=true
+auto.commit.interval.ms=1000
+session.timeout.ms=30000
+group.id=kafka-customer-test

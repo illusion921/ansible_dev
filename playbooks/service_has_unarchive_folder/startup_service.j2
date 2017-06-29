@@ -1,0 +1,16 @@
+#!/bin/sh
+java={{ j2_java_home }}/bin/java
+jps={{ j2_java_home }}/bin/jps
+
+export clspath="classes"
+cd `dirname $0`/../
+
+for k in dependency/*.jar
+do
+        clspath=$clspath:$k
+done
+
+echo "execute start..................."
+  nohup ${java}  -Xms64m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=128m -classpath "${clspath}" {{ j2_process_name }} 1>/dev/null 2>&1 &
+  echo '{{ j2_service_name }} process information:' `${jps} -l | grep '{{ j2_process_name }}'`
+echo "execute finish..................."

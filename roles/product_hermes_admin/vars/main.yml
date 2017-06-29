@@ -1,0 +1,31 @@
+---
+app_full_name: hermes admin
+app_name: hermes-admin
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: admin-web/target
+archive_file_name: admin-web-1.0-SNAPSHOT.tar.gz
+unarchive_file_name: admin
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+tomcat_shutdown_port: 8681
+tomcat_connector_http_port: 8680
+tomcat_connector_ajp_port: 8682
+
+doc_path: /hermes
+doc_base: admin
+
+j2_zk_dns1: "{{ ZK_DNS1 }}"
+j2_zk_dns2: "{{ ZK_DNS2 }}"
+j2_zk_dns3: "{{ ZK_DNS3 }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_redis_host: "{{ REDIS_HOST1 }}"
+j2_redis_port: "{{ REDIS_PORT }}"
+j2_redis_passwd: "{{ REDIS_PASSWD }}"
+
+config_list:
+  - application
+  - dubbo
+  - redis
+  - log4j

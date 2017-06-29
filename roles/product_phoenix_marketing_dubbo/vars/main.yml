@@ -1,0 +1,25 @@
+---
+project_name: new b2b marketing dubbo service
+service_name: phoenix-marketing-dubbo
+archive_file_path: startup/target
+archive_file_name: phoenix-ec-marketing.tar.gz
+
+#Jinja2 template vars
+j2_java_home: "{{ JAVA7_HOME }}"
+j2_process_name: com.kom.phoenix.ec.marketing.startup.MarketingStartUp
+j2_service_name: "{{ service_name }}"
+
+j2_zk_dns1: "{{ ZK_DNS1 }}"
+j2_zk_dns2: "{{ ZK_DNS2 }}"
+j2_zk_dns3: "{{ ZK_DNS3 }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_mysql_dns: "{{ MYSQL_SLAVE_DNS }}"
+j2_mysql_port: "{{ MYSQL_PORT }}"
+j2_mysql_user: "{{ MYSQL_SLAVE_USERNAME }}"
+j2_mysql_passwd: "{{ MYSQL_SLAVE_PASSWD }}"
+
+config_list:
+  - dubbo
+  - jdbc
+

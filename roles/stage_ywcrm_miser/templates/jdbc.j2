@@ -1,0 +1,8 @@
+datasource.type=mysql
+datasource.url=jdbc:mysql://{{ j2_mysql_slave_dns }}:{{ j2_mysql_slave_port }}/ypzdw_marketing?autoReconnect\=true&amp;useUnicode\=true&amp;characterEncoding\=utf8
+datasource.username={{ j2_mysql_slave_user }}
+datasource.password={{ j2_mysql_slave_passwd }}
+
+oldEc.datasource.url=jdbc:mysql://{{ j2_mysql_dns }}:{{ j2_mysql_port }}/ypzdw_busi_v3?autoReconnect\=true&amp;useUnicode\=true&amp;characterEncoding\=utf8
+oldEc.datasource.username={{ j2_mysql_user }}
+oldEc.datasource.password={{ j2_mysql_passwd }}

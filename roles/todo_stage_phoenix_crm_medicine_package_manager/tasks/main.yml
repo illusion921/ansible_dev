@@ -1,0 +1,6 @@
+---
+- name: custom server xml config modify HTTP Connector {{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}
+  replace:
+    path: "{{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}"
+    regexp: 'redirectPort="8443" />'
+    replace: 'exec "$PRGDIR"/"$EXECUTABLE" stop -force "$@"'

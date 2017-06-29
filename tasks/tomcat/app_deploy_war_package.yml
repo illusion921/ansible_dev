@@ -1,0 +1,20 @@
+---
+- name: delete old ROOT folder--> {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ TOMCAT_ROOT_NAME }}
+  file:
+    path={{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ TOMCAT_ROOT_NAME }}
+    state=absent
+
+- name: delete war file--> {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ war_file_name }}
+  file:
+    path={{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ war_file_name }}
+    state=absent
+
+- name: delete old app folder
+  file:
+    path={{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ app_name }}
+    state=absent
+
+- name: copy war file to tomcat {{ TOMCAT_WEBAPPS_NAME }}--> {{ workspace_path }}/{{ war_file_path }}/{{ war_file_name }} -> {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ war_file_name }}
+  copy:
+    src={{ workspace_path }}/{{ war_file_path }}/{{ war_file_name }}
+    dest={{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ war_file_name }}

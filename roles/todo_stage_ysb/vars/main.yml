@@ -1,0 +1,17 @@
+---
+app_full_name: yi sheng bao(yi dao)
+app_name: ysb
+process_name: ysb
+war_file_name: ysb.war
+
+jenkins_name: wireless-stg-ysb-pre-prod
+
+#conf/server.xml
+tomcat_shutdown_port: 8005
+tomcat_connector_http_port: 8080
+tomcat_connector_ajp_port: 8006
+
+doc_path: /
+doc_base: ysb
+
+

@@ -1,0 +1,26 @@
+---
+# This playbook deploys all apps to stage environment.
+
+
+- name: Jet try ansible
+  hosts: site01
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+    - "global_vars/encrypt.yml"
+  roles:
+    - local
+#    - {role: local, when: "tag == 'local'"}
+    - {role: product_repairman_tools, when: "tag == 'repairman'"}
+    - {role: product_phoenix_item, when: "tag == 'phoenix-item'"}
+    - {role: product_giant_search_product_server_sync, when: "tag == 'giant-search-product-server-sync'"}
+    - {role: product_phoenix_webapp_portal_shop, when: "tag == 'phoenix-webapp-portal-shop'"}
+    - {role: product_giant_search_server_sync, when: "tag == 'giant-search-server-sync'"}
+    - {role: product_groundhog_passport, when: "tag == 'groundhog-passport'"}
+    - {role: product_giant_search, when: "tag == 'giant-search'"}
+    - {role: stage_zhongduanbao, when: "tag == 'zdb'"}
+
+

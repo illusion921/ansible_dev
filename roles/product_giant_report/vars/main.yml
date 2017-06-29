@@ -1,0 +1,40 @@
+---
+app_full_name: giant report
+app_name: giant-report
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: giant-report-app/giant-report-app-report/giant-report-app-report-web/target
+archive_file_name: giant-report-app-report-web-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: report
+
+
+#conf/server.xml
+tomcat_shutdown_port: 8081
+tomcat_connector_http_port: 8080
+tomcat_connector_ajp_port: 8082
+
+doc_path: ""
+doc_base: report
+
+j2_java_home: "{{ JAVA7_HOME }}"
+
+j2_zk_dns1: "{{ ZK_DNS1 }}"
+j2_zk_dns2: "{{ ZK_DNS2 }}"
+j2_zk_dns3: "{{ ZK_DNS3 }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_mysql_ip: "{{ MYSQL_114_IP }}"
+j2_mysql_port: "{{ MYSQL_114_PORT }}"
+j2_mysql_user: "{{ MYSQL_114_USERNAME3 }}"
+j2_mysql_passwd: "{{ MYSQL_114_PASSWD3 }}"
+
+
+j2_redis_ip: "{{ REDIS_IP2 }}"
+j2_redis_port: "{{ REDIS_PORT }}"
+j2_redis_passwd: "{{ REDIS_PASSWD }}"
+
+config_list:
+  - jdbc
+  - jdbc_report
+  - dubbo
+  - redis
+

@@ -1,0 +1,19 @@
+#!/bin/sh
+jps={{ j2_java_home }}/bin/jps
+
+pid=`${jps} -l | grep '{{ j2_process_name }}' | awk '{print $1}'`
+
+
+if [ $pid > 0 ]
+  then
+    echo 'kill the old pid is ------------------>' ${pid}
+    kill -9 ${pid}
+    pidnum=`${jps} -l | grep '{{ j2_process_name }}' | awk '{print $1}'|wc -w`
+    if [ "${pidnum}" -eq 0 ];then
+        echo '---------------------'
+        echo '{{ j2_service_name }} is stopped'
+        echo '---------------------'
+    fi
+else
+  echo "{{ j2_process_name }} not start"
+fi

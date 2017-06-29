@@ -1,0 +1,7 @@
+---
+- name: app exist or not
+  include: app_is_exist.yml
+
+- name: initialize and config app if app not existed before
+  include: tomcat_initial_and_config.yml
+  when: app_exist.stat.exists != true

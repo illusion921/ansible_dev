@@ -1,0 +1,13 @@
+---
+app_full_name: phoenix pipe rest
+app_name: phoenix-pipe-rest
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: phoenix-pipe-web/phoenix-pipe-web-rest/phoenix-pipe-web-rest-portal/target
+archive_file_name: phoenix-pipe-web-rest-portal-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: rest
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+tomcat_shutdown_port: 8011
+tomcat_connector_http_port: 8010
+tomcat_connector_ajp_port: 8012

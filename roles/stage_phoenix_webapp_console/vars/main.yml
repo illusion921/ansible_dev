@@ -1,0 +1,19 @@
+---
+app_full_name: phoenix webapp console
+app_name: phoenix-webapp-console
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: phoenix-webapp-web/phoenix-webapp-web-console/target
+archive_file_name: phoenix-webapp-web-console-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: console
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+tomcat_shutdown_port: 8281
+tomcat_connector_http_port: 8280
+tomcat_connector_ajp_port: 8282
+
+j2_zk_dns: "{{ ZK_DNS }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+config_list:
+  - dubbo

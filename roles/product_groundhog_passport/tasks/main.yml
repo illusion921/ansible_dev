@@ -1,0 +1,3 @@
+---
+- name: start deploy {{ app_full_name }}
+  include: "{{ PROJECT_ROOT }}/tasks/groundhog_passport/main.yml"

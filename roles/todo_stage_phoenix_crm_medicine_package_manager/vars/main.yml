@@ -1,0 +1,14 @@
+---
+app_full_name: CRM medicine package manager
+app_name: crm_medicine_package_manager
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: web/target
+archive_file_name: phoenix-ec-manage.tar.gz
+
+j2_java_home: "{{ JAVA_HOME }}"
+
+tomcat_shutdown_port: 8064
+tomcat_connector_http_port: 8063
+tomcat_connector_ajp_port: 8065
+
+

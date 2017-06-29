@@ -1,0 +1,11 @@
+---
+- name: deploy {{ project_name }}
+  include: "{{ PROJECT_ROOT }}/playbooks/service_has_unarchive_folder/service_deploy_unarchive_has_folder_playbook.yml"
+
+- name: copy start sync full product shell
+  template:
+    src=start-sync-full-product.j2
+    dest={{ SERVICE_LOCATION }}/{{ SHELL_NAME }}/start-sync-full-product.sh
+    owner={{ service_user }}
+    group={{ service_group }}
+    mode=0755

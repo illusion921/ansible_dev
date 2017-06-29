@@ -1,0 +1,5 @@
+---
+- name: judge app exist or not
+  stat:
+    path: "{{ APP_LOCATION }}"
+  register: app_exist

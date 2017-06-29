@@ -1,0 +1,3 @@
+---
+- name: start deploy {{ app_full_name }}
+  include: "{{ PROJECT_ROOT }}/tasks/giant_report/main.yml"

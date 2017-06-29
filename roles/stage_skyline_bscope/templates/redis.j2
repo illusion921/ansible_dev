@@ -1,0 +1,12 @@
+redis.pool.maxActive=1024
+redis.pool.maxIdle=200
+redis.pool.maxWait=1000
+redis.pool.testOnBorrow=true
+redis.pool.testOnReturn=true
+
+#database
+redis.ip={{ j2_redis_ip }}
+redis.port={{ j2_redis_port }}
+redis.password={{ j2_redis_passwd }}
+redis.timeout=5000
+redis.database=0

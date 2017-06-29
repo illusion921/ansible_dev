@@ -1,0 +1,7 @@
+#dubbo
+dubbo.registry.protocol=zookeeper
+dubbo.registry.address={{ j2_zk_dns1 }}:{{ j2_zk_port }},{{ j2_zk_dns2 }}:{{ j2_zk_port }},{{ j2_zk_dns3 }}:{{ j2_zk_port }}
+dubbo.protocol.name=dubbo
+dubbo.protocol.host=127.0.0.1
+dubbo.protocol.zdb.port=20881
+dubbo.service.version=1.0.0

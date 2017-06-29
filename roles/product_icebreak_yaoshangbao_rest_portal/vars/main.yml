@@ -1,0 +1,35 @@
+---
+app_full_name: yaoshangbao rest portal
+app_name: yaoshangbao-rest-portal
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: yaoshangbao-web/yaoshangbao-web-rest/yaoshangbao-web-rest-portal/target
+archive_file_name: yaoshangbao-web-rest-portal-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: yaoshangbao-rest-portal
+
+tomcat_shutdown_port: 8111
+tomcat_connector_http_port: 8110
+tomcat_connector_ajp_port: 8112
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+doc_path: /
+doc_base: yaoshangbao-rest-portal
+
+j2_zk_dns1: "{{ ZK_DNS1 }}"
+j2_zk_dns2: "{{ ZK_DNS2 }}"
+j2_zk_dns3: "{{ ZK_DNS3 }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_mysql_dns: "{{ MYSQL_MASTER_DNS }}"
+j2_mysql_port: "{{ MYSQL_PORT }}"
+j2_mysql_user: "{{ MYSQL_MASTER_USERNAME }}"
+j2_mysql_passwd: "{{ MYSQL_MASTER_PASSWD }}"
+
+j2_redis_host: "{{ REDIS_HOST }}"
+j2_redis_port: "{{ REDIS_PORT }}"
+j2_redis_passwd: "{{ REDIS_PASSWD }}"
+
+config_list:
+  - dubbo
+  - jdbc
+  - redis

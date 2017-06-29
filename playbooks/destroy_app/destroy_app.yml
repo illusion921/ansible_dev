@@ -1,0 +1,25 @@
+---
+- hosts: '{{ hosts }}'
+  gather_facts: no
+
+  tasks:
+  - name: kill app {{ app_path }}
+    script: kill_process.sh {{ app_path }}
+
+  - name: destroy app {{ app_path }}
+    file:
+      path={{ app_path }}
+      state=absent
+
+#---
+##publish the project self
+##/home/244/apache-tomcat/webapps/jenkins/jobs/publish_ansible_deployment_project/workspace
+#
+#- hosts: '{{ hosts }}'
+#  gather_facts: no
+#- hosts: '{{ hosts }}'
+#  tasks:
+#  - name: archive latest ansible playbook locally
+#    archive:
+#      path: /home/uj/workspaces/devops/ansible/deployment/
+#      dest: /tmp/deployment.tgz

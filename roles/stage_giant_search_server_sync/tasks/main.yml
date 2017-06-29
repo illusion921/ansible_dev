@@ -1,0 +1,27 @@
+---
+- name: deploy {{ project_name }}
+  include: "{{ PROJECT_ROOT }}/playbooks/service_has_unarchive_folder/service_deploy_unarchive_has_folder_playbook.yml"
+
+- name: copy start full sync item task shell
+  template:
+    src=start-full-sync-item-task.j2
+    dest={{ SERVICE_LOCATION }}/{{ SHELL_NAME }}/start-full-sync-item-task.sh
+    owner={{ service_user }}
+    group={{ service_group }}
+    mode=0755
+
+- name: copy start full sync shop task shell
+  template:
+    src=start-full-sync-shop-task.j2
+    dest={{ SERVICE_LOCATION }}/{{ SHELL_NAME }}/start-full-sync-shop-task.sh
+    owner={{ service_user }}
+    group={{ service_group }}
+    mode=0755
+
+- name: copy start full sync suggest task shell
+  template:
+    src=start-full-sync-suggest-task.j2
+    dest={{ SERVICE_LOCATION }}/{{ SHELL_NAME }}/start-full-sync-suggest-task.sh
+    owner={{ service_user }}
+    group={{ service_group }}
+    mode=0755

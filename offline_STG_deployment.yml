@@ -1,0 +1,34 @@
+---
+# This playbook deploys all apps to stage environment.
+
+
+- name: org app stage deploy
+  hosts: app
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+    - "global_vars/encrypt.yml"
+  roles:
+#    - local
+#    - {role: local, when: "tag == 'local'"}
+    - {role: offline_stage_groundhog_passport, when: "tag == 'groundhog-passport'"}
+
+
+- name: org service stage deploy
+  hosts: service
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+    - "global_vars/encrypt.yml"
+  roles:
+#    - local
+#    - {role: local, when: "tag == 'local'"}
+    - {role: offline_stage_groundhog_org, when: "tag == 'groundhog-org'"}
+
+

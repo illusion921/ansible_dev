@@ -1,0 +1,9 @@
+---
+- name: uncharive tomcat and rename to {{ app_name }}
+  include: tomcat_unarchive_rename.yml
+
+- name: config app
+  include: tomcat_server_xml_config.yml
+- include: tomcat_shutdown_config.yml
+#- include: tomcat_catalina_config.yml
+- include: tomcat_setenv_config.yml

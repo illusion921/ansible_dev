@@ -1,0 +1,11 @@
+ansible_host: 172.31.9.125
+ansible_user: ec2-user
+ansible_ssh_private_key_file: /home/ubuntu/.ssh/Ops
+
+tomcat_user: ec2-user
+tomcat_group: ec2-user
+service_user: ec2-user
+service_group: ec2-user
+
+JAVA7_HOME: /opt/tools/jdk1.7.0_67
+JAVA8_HOME: /opt/tools/jdk1.8.0_60

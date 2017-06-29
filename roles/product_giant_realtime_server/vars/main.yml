@@ -1,0 +1,32 @@
+---
+project_name: giant realtime server
+service_name: giant-realtime-server
+archive_file_path: giant-realtime-server/target
+archive_file_name: giant-realtime-server-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: giant-realtime-server
+
+#Jinja2 template vars
+j2_java_home: "{{ JAVA8_HOME }}"
+j2_process_name: com.kom.giant.realtime.server.StartRealtimeServer
+j2_service_name: "{{ service_name }}"
+
+j2_mysql_114_ip: "{{ MYSQL_114_IP }}"
+j2_mysql_114_port: "{{ MYSQL_114_PORT }}"
+j2_mysql_114_user: "{{ MYSQL_114_USERNAME2 }}"
+j2_mysql_114_passwd: "{{ MYSQL_114_PASSWD2 }}"
+
+j2_mysql_99_ip: "{{ MYSQL_99_IP }}"
+j2_mysql_99_port: "{{ MYSQL_99_PORT }}"
+j2_mysql_99_user: "{{ MYSQL_99_USERNAME1 }}"
+j2_mysql_99_passwd: "{{ MYSQL_99_PASSWD1 }}"
+
+
+j2_kafka_dns1: "{{ KAFKA_DNS1 }}"
+j2_kafka_dns2: "{{ KAFKA_DNS2 }}"
+j2_kafka_dns3: "{{ KAFKA_DNS3 }}"
+j2_kafka_port: "{{ KAFKA_PORT }}"
+
+config_list:
+  - jdbc
+  - kafka
+

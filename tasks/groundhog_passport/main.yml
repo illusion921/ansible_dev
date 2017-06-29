@@ -1,0 +1,22 @@
+---
+- name: initialize app running container if needed
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_initialize.yml"
+
+- name: custom config {{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/custom_server_xml_add_context.yml"
+
+- name: custom server xml config modify HTTP Connector {{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}
+  replace:
+    path: "{{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}"
+    regexp: 'connectionTimeout="20000"'
+    replace: 'connectionTimeout="20000"
+               parseBodyMethods="POST,PUT,DELETE" URIEncoding="UTF-8"'
+
+- name: stop {{ app_name }} if {{ app_name }} is running
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_shutdown.yml"
+
+- name: copy lastest archive app package to tomcat
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_deploy_archive_package.yml"
+
+- name: start {{ app_name }}
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_startup.yml"

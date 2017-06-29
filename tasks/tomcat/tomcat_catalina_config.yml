@@ -1,0 +1,10 @@
+---
+- name: add content in catalina.sh for bin/shutdown.sh can work
+  blockinfile:
+    path: "{{APP_LOCATION}}/{{ TOMCAT_BIN_NAME }}/{{ CATALINA_SH }}"
+    insertafter: "PRGDIR=`dirname \".*PRG\"`"
+    content: |
+      if [ -z "$CATALINA_PID" ]; then
+          CATALINA_PID=$PRGDIR/CATALINA_PID
+          cat $CATALINA_PID
+      fi

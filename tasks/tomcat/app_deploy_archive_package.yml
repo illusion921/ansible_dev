@@ -1,0 +1,26 @@
+---
+- name: delete old APP folder--> {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ app_name }}
+  file:
+    path={{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ app_name }}
+    state=absent
+
+- name: delete ROOT folder--> {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ TOMCAT_ROOT_NAME }}
+  file:
+    path={{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ TOMCAT_ROOT_NAME }}
+    state=absent
+
+- name: copy package from {{ workspace_path }}/{{ archive_file_path }}/{{ archive_file_name }} to {{ APP_LOCATION }}/{{TOMCAT_WEBAPPS_NAME}}
+  copy:
+    src={{ workspace_path }}/{{ archive_file_path }}/{{ archive_file_name }}
+    dest={{ APP_LOCATION }}/{{TOMCAT_WEBAPPS_NAME}}
+
+- name: unarchive app {{ archive_file_name }}
+  unarchive:
+    src: "{{ APP_LOCATION }}/{{TOMCAT_WEBAPPS_NAME}}/{{ archive_file_name }}"
+    dest: "{{ APP_LOCATION }}/{{TOMCAT_WEBAPPS_NAME}}"
+    remote_src: True
+
+- name: delete archive file
+  file:
+    path={{ APP_LOCATION }}/{{TOMCAT_WEBAPPS_NAME}}/{{ archive_file_name }}
+    state=absent

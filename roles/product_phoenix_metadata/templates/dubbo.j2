@@ -1,0 +1,2 @@
+dubbo.spring.config=classpath*:application.xml
+dubbo.registry.address=zookeeper://{{ j2_zk_dns2 }}:{{ j2_zk_port }}?backup={{ j2_zk_dns3 }}:{{ j2_zk_port }},{{ j2_zk_dns2 }}:{{ j2_zk_port }}

@@ -1,0 +1,5 @@
+kafka.allTopic=orderMsg,financeMsg,sysMsg,articleMsg,memberPointsMsg,promotionMsg,imMsg,ec_coupon
+kafka.partition.num=3
+kafka.zk={{ j2_zk_dns1 }}:{{ j2_zk_port }},{{ j2_zk_dns2 }}:{{ j2_zk_port }},{{ j2_zk_dns3 }}:{{ j2_zk_port }}
+kafka.group.id=yaoyi-group
+kafka.broker.list={{ j2_kafka_dns1 }}:{{ j2_kafka_port }},{{ j2_kafka_dns2 }}:{{ j2_kafka_port }},{{ j2_kafka_dns3 }}:{{ j2_kafka_port }}

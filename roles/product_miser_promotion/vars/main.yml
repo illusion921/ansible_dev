@@ -1,0 +1,55 @@
+---
+app_full_name: miser promotion
+app_name: miser-promotion
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: miser-promotion-web/target
+archive_file_name: miser-promotions-web.tar.gz
+unarchive_file_name: miser
+
+tomcat_shutdown_port: 8031
+tomcat_connector_http_port: 8030
+tomcat_connector_ajp_port: 8032
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+j2_mysql_dns: "{{ MYSQL_SLAVE_DNS }}"
+j2_mysql_port: "{{ MYSQL_PORT }}"
+j2_mysql_user: "{{ MYSQL_SLAVE_USERNAME }}"
+j2_mysql_passwd: "{{ MYSQL_SLAVE_PASSWD }}"
+
+j2_zk_dns1: "{{ ZK_DNS1 }}"
+j2_zk_dns2: "{{ ZK_DNS2 }}"
+j2_zk_dns3: "{{ ZK_DNS3 }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_kafka_dns1: "{{ KAFKA_DNS1 }}"
+j2_kafka_dns2: "{{ KAFKA_DNS2 }}"
+j2_kafka_dns3: "{{ KAFKA_DNS3 }}"
+j2_kafka_port: "{{ KAFKA_PORT }}"
+
+j2_redis_host: "{{ REDIS_HOST1 }}"
+j2_redis_port: "{{ REDIS_PORT }}"
+j2_redis_passwd: "{{ REDIS_PASSWD }}"
+
+j2_thrift_ip0: "{{ THRIFT_IP0 }}"
+j2_thrift_port03: "{{ THRIFT_PORT03 }}"
+j2_thrift_port04: "{{ THRIFT_PORT04 }}"
+
+j2_thrift_ip2: "{{ THRIFT_IP2 }}"
+j2_thrift_port21: "{{ THRIFT_PORT21 }}"
+
+j2_thrift_ip1: "{{ THRIFT_IP1 }}"
+j2_thrift_port12: "{{ THRIFT_PORT12 }}"
+j2_thrift_port13: "{{ THRIFT_PORT13 }}"
+
+doc_path: miser
+doc_base: miser
+
+config_list:
+  - application
+  - jdbc
+  - mongo_db
+  - kafka
+  - dubbo
+  - redis
+  - thrift

@@ -1,0 +1,15 @@
+#!/bin/sh
+java={{ j2_java_home }}/bin/java
+
+export clspath="classes"
+cd `dirname $0`/../
+
+for k in dependency/*.jar
+do
+        clspath=$clspath:$k
+done
+
+echo "execute start..................."
+  nohup ${java} -Xms64m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=128m -classpath "${clspath}" com.kom.giant.search.sync.FullSyncShopTaskStarter 2>/ywkj/logs/flush-index-item.log 1 | grep -E '%;' >>/ywkj/logs/flush-index-shop.log | 1>/dev/null 2>&1 &
+echo "execute finish..................."
+

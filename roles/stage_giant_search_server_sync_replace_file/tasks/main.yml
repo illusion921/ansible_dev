@@ -1,0 +1,6 @@
+---
+
+- name: copy file from {{ workspace_path }}/{{ file_path }}/{{ file_name }} to {{ SERVICE_LOCATION }}/{{ CLASSES_NAME }}
+  copy:
+    src={{ workspace_path }}/{{ file_path }}/{{ file_name }}
+    dest={{ SERVICE_LOCATION }}/{{ CLASSES_NAME }}

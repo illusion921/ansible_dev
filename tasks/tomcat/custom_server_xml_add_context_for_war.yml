@@ -1,0 +1,24 @@
+---
+- name: replace context under host tag in conf/server.xml
+  replace:
+    path: "{{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}"
+    regexp: '<Host name="localhost"\s+appBase="webapps"\s+unpackWARs="true"\s+autoDeploy="true">'
+
+    replace: '<Host name="localhost"  appBase="{{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}"
+            unpackWARs="true" autoDeploy="false" deployOnStartup="false">'
+
+- name: add context under host tag in conf/server.xml
+  blockinfile:
+    path: "{{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}"
+    insertafter: 'deployOnStartup="false">'
+    content: |
+      <Context path="{{ doc_path }}"
+                 docBase="{{ doc_base }}"
+                 crossContext="true"
+                 debug="0"
+                 reloadable="true"
+                 trusted="false" >
+        </Context>
+
+#'<Host name="localhost"  appBase="webapps"
+#            unpackWARs="true" autoDeploy="true">'

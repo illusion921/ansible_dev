@@ -1,0 +1,13 @@
+---
+project_name: groundhog organization service
+service_name: groundhog-org
+jar_file_path: groundhog-organization-atom/target
+jar_file_name: groundhog-organization-atom-0.1.0.RELEASE-jar-with-dependencies.jar
+dest_jar_file_path: "{{ SERVICE_LOCATION }}/{{ jar_file_name }}"
+
+#Jinja2 template vars
+j2_java_home: "{{ JAVA8_HOME }}"
+j2_jar_file_path: "{{ dest_jar_file_path }}"
+j2_service_home: "{{ SERVICE_LOCATION }}"
+j2_process_name: "{{ dest_jar_file_path }}"
+j2_service_name: "{{ service_name }}"

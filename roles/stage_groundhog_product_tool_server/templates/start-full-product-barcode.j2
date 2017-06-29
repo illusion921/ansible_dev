@@ -1,0 +1,17 @@
+#!/bin/sh
+export LANG="en_US.UTF-8"
+JAVA_HOME={{ j2_java_home }}
+JAVA_BIN=$JAVA_HOME/bin
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+PATH=$JAVA_HOME:$JAVA_BIN:$CLASSPATH:$PATH
+export JAVA_HOME JAVA_BIN CLASSPATH PATH
+export clspath="classes"
+cd `dirname $0`/../
+
+for k in dependency/*.jar
+do
+        clspath=$clspath:$k
+done
+echo "execute start..................."
+  nohup java -Xms64m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=128m -classpath "${clspath}" {{ j2_full_process_name }} 1>/dev/null 2>&1 &
+echo "execute finish..................."

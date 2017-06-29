@@ -1,0 +1,6 @@
+---
+- name: add -froce param to {{APP_LOCATION}}/{{ TOMCAT_BIN_NAME }}/shutdown.sh
+  replace:
+    path: "{{APP_LOCATION}}/{{ TOMCAT_BIN_NAME }}/{{ SHUTDOWN_SH }}"
+    regexp: 'exec .*PRGDIR.*EXECUTABLE.* stop .*'
+    replace: 'exec "$PRGDIR"/"$EXECUTABLE" stop -force "$@"'

@@ -1,0 +1,95 @@
+---
+# This playbook deploys  apps and services to stage environment.
+
+- name: Deploy apps and services on wireless stage online machine.
+  hosts: wireless_stage
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+  roles:
+    #APP
+    - {role: stage_kongxiaobao, when: "tag == 'kxb'" }
+    - {role: stage_zhongduanbao, when: "tag == 'zdb'"}
+#    - {role: stage_ysb, when: "tag == 'ysb'"}
+    - {role: stage_groundhog_passport, when: "tag == 'groundhog-passport'"}
+    #SERVICE
+    - {role: stage_groundhog_org, when: "tag == 'groundhog-org'"}
+    - {role: stage_pioneer_eureka, when: "tag == 'pioneer-eureka'"}
+    - {role: stage_pioneer_schedule, when: "tag == 'pioneer-schedule'"}
+    - {role: stage_pioneer_zuul, when: "tag == 'pioneer-zuul'"}
+
+
+
+
+
+
+- name: Deploy apps and services on data stage online machine.
+  hosts: data_stage
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+  roles:
+  #SERVICE
+    - {role: stage_groundhog_product, when: "tag == 'groundhog-product'"}
+    - {role: stage_groundhog_product_sync, when: "tag == 'groundhog-product-sync'"}
+    - {role: stage_groundhog_product_tool_server, when: "tag == 'groundhog-product-tool-server'"}
+    - {role: stage_phoenix_yop_server, when: "tag == 'phoenix-yop-server'"}
+    - {role: stage_phoenix_pipe_host_sync, when: "tag == 'phoenix-pipe-host-sync'"}
+    - {role: stage_phoenix_pipe_host_admin, when: "tag == 'phoenix-pipe-host-admin'"}
+    - {role: stage_giant_recommand, when: "tag == 'giant-recommand'"}
+    - {role: stage_giant_search_product_server_app, when: "tag == 'giant-search-product-server-app'"}
+    - {role: stage_giant_search_product_server_sync, when: "tag == 'giant-search-product-server-sync'"}
+    - {role: stage_giant_search_server_sync, when: "tag == 'giant-search-server-sync'"}
+    - {role: stage_giant_search_server_sync_replace_file, when: "tag == 'giant-search-server-sync-replace'"}
+    - {role: stage_giant_realtime_server, when: "tag == 'giant-realtime'"}
+    - {role: stage_giant_search, when: "tag == 'giant-search'"}
+  #APP
+    - {role: stage_phoenix_pipe_console, when: "tag == 'phoenix-pipe-console'"}
+    - {role: stage_phoenix_pipe_rest, when: "tag == 'phoenix-pipe-rest'"}
+    - {role: stage_phoenix_webapp_boss, when: "tag == 'phoenix-webapp-boss'"}
+    - {role: stage_phoenix_webapp_console, when: "tag == 'phoenix-webapp-console'"}
+    - {role: stage_ywcrm, when: "tag == 'ywcrm'"}
+    - {role: stage_repairman_tools, when: "tag == 'repairman'"}
+    - {role: stage_phoenix_webapp_portal_shop, when: "tag == 'phoenix-webapp-portal-shop'"}
+    - {role: stage_giant_report, when: "tag == 'giant-report'"}
+    - {role: stage_ywcrm_miser, when: "tag == 'ywcrm-miser'"}
+
+
+
+
+
+
+
+- name: Deploy apps and services on b2b-linux-nginx stage online machine.
+  hosts: b2b_linux_stage
+  gather_facts: no
+  vars_files:
+    - "global_vars/all.yml"
+    - "global_vars/folder_list.yml"
+    - "global_vars/tomcat_vars.yml"
+    - "global_vars/service_vars.yml"
+  roles:
+  #SERVICE
+    - {role: stage_phoenix_gateway_dubbo, when: "tag == 'phoenix-gateway-dubbo'"}
+    - {role: stage_phoenix_marketing_dubbo, when: "tag == 'phoenix-marketing-dubbo'"}
+    - {role: stage_phoenix_metadata, when: "tag == 'phoenix-metadata'"}
+    - {role: stage_icebreak_yaoshangbao_host_admin, when: "tag == 'ysb-host-admin'"}
+    - {role: stage_phoenix_cert_exchange, when: "tag == 'phoenix-cert-exchange'"}
+    - {role: stage_skyline_bscope, when: "tag == 'skyline-bscope'"}
+    - {role: stage_phoenix_pontoon, when: "tag == 'phoenix-pontoon'"}
+    - {role: stage_phoenix_item, when: "tag == 'phoenix-item'"}
+    - {role: stage_phoenix_cert, when: "tag == 'phoenix-cert'"}
+   #APP
+    - {role: stage_kehuguanxi, when: "tag == 'khgx'"}
+    - {role: stage_miser_promotion, when: "tag == 'miser-promotion'"}
+    - {role: stage_icebreak_yaoshangbao_rest_portal, when: "tag == 'ysb-rest-portal'"}
+    - {role: stage_ceres, when: "tag == 'ceres'"}
+    - {role: stage_hermes_admin, when: "tag == 'hermes-admin'"}
+
+

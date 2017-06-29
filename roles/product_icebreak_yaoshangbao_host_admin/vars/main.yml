@@ -1,0 +1,20 @@
+---
+project_name: yaoshangbao host admin
+service_name: yaoshangbao-host-admin
+archive_file_path: yaoshangbao-host/yaoshangbao-host-admin/target
+archive_file_name: yaoshangbao-host-admin-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: yaoshangbao-host-admin
+
+#Jinja2 template vars
+j2_java_home: "{{ JAVA8_HOME }}"
+j2_process_name: com.kom.yaoshangbao.host.admin.server.ServerStart
+j2_service_name: "{{ service_name }}"
+
+j2_zk_dns1: "{{ ZK_DNS1 }}"
+j2_zk_dns2: "{{ ZK_DNS2 }}"
+j2_zk_dns3: "{{ ZK_DNS3 }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+config_list:
+  - dubbo
+

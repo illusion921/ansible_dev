@@ -1,0 +1,24 @@
+---
+#- name: start app
+#  script: tomcat-initscript.sh {{JAVA_HOME}} {{APP_LOCATION}} {{tomcat_user}} start
+
+
+- name: start app
+  shell: "nohup {{APP_LOCATION}}/{{ TOMCAT_BIN_NAME }}/{{ STARTUP_SH }} 1>{{APP_LOCATION}}/{{ TOMCAT_TEMP_NAME }}/{{ NOHUP_OUT }} 2>&1 &"
+
+#- name: start app
+#  become: true
+#  become_method: su
+#  become_user: "{{ tomcat_user }}"
+#  become_flags: '-c'
+#  shell: "{{APP_LOCATION}}/{{ TOMCAT_BIN_NAME }}/{{ STARTUP_SH }}"
+#  register: result
+#
+#- debug:
+#    msg: results are--> {{ result }}
+
+#- name: start {{ app_full_name }}
+#  become: true
+#  become_method: sudo
+#  command: su {{ tomcat_user }} -c "{{ APP_LOCATION }}/bin/{{ STARTUP_SH }}"
+#  register: result

@@ -1,0 +1,6 @@
+folder_list1:
+  - classes/
+  - dependency/
+
+exclude_list1:
+  - shell/

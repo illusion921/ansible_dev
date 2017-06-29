@@ -1,0 +1,24 @@
+---
+- name: initialize app running container if needed
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_initialize.yml"
+
+- name: custom config {{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/custom_server_xml_add_context_for_war.yml"
+
+- name: stop {{ app_name }} if {{ app_name }} is running
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_shutdown.yml"
+
+- name: delete war file--> {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/kongxiaobao.war
+  file:
+    path={{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/kongxiaobao.war
+    state=absent
+
+- name: copy lastest war app package to tomcat
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_deploy_war_package.yml"
+
+- name: rename war package to kongxiaobao
+  command: mv {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ war_file_name }} {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/kongxiaobao.war
+
+
+- name: start {{ app_name }}
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_startup.yml"

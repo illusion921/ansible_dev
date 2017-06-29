@@ -1,0 +1,10 @@
+---
+SERVICE_HOME: "{{ SITE_HOME }}/services"
+
+SHELL_NAME: shell
+CLASSES_NAME: classes
+
+SERVICE_LOCATION: "{{ SERVICE_HOME }}/{{ service_name }}"
+
+STARTUP_SH: startup.sh
+SHUTDOWN_SH: shutdown.sh

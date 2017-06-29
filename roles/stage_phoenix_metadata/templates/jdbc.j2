@@ -1,0 +1,13 @@
+datasource.type=mysql
+datasource.url=jdbc:mysql://{{ j2_mysql_dns }}:{{ j2_mysql_port }}/ypzdw_busi_v3?autoReconnect\=true&amp;useUnicode\=true&amp;characterEncoding\=utf8
+datasource.username={{ j2_mysql_user }}
+datasource.password={{ j2_mysql_passwd }}
+
+c3p0.acquireIncrement=3
+c3p0.initialPoolSize=3
+c3p0.idleConnectionTestPeriod=900
+c3p0.minPoolSize=2
+c3p0.maxPoolSize=50
+c3p0.maxStatements=100
+c3p0.numHelperThreads=10
+c3p0.maxIdleTime=600

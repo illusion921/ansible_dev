@@ -1,0 +1,18 @@
+---
+app_full_name: zhong duan bao
+app_name: yaoyi-message
+process_name: "{{ APP_LOCATION }}"
+war_file_path: web/target
+war_file_name: web-1.0-SNAPSHOT.war
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+#conf/server.xml
+tomcat_shutdown_port: 8007
+tomcat_connector_http_port: 8090
+tomcat_connector_ajp_port: 8008
+
+doc_path: /
+doc_base: yaoyi-message
+
+

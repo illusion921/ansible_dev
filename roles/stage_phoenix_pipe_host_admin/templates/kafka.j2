@@ -1,0 +1,13 @@
+#-------必填项-----------------------#
+bootstrap.servers={{ j2_kafka_dns }}:{{ j2_kafka_port }}
+#------- producer(可选项)------------#
+acks=1
+retries=5
+batch.size=16384
+linger.ms=1000
+buffer.memory=33554432
+#------- consumer(可选项)----------#
+enable.auto.commit=false
+auto.commit.interval.ms=1000
+session.timeout.ms=30000
+group.id=erp_consumer_v2

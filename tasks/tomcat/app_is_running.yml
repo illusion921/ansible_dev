@@ -1,0 +1,8 @@
+---
+- name: app {{ process_name }} is running or not
+  script: app_is_running.sh {{ process_name }}/
+  register: app_is_running
+
+- debug:
+   msg: "not start"
+  when: app_is_running.stdout_lines[0] == "not start"

@@ -1,0 +1,28 @@
+---
+app_full_name: phoenix pipe console
+app_name: phoenix-pipe-console
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: phoenix-pipe-web/phoenix-pipe-web-console/phoenix-pipe-web-console-portal/target
+archive_file_name: phoenix-pipe-web-console-portal-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: console
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+tomcat_shutdown_port: 8021
+tomcat_connector_http_port: 8020
+tomcat_connector_ajp_port: 8022
+
+j2_redis_host: "{{ REDIS_HOST }}"
+j2_redis_port: "{{ REDIS_PORT }}"
+j2_redis_passwd: "{{ REDIS_PASSWD }}"
+
+j2_zk_dns: "{{ ZK_DNS }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_kafka_dns: "{{ KAFKA_DNS }}"
+j2_kafka_port: "{{ KAFKA_PORT }}"
+
+config_list:
+  - redis
+  - dubbo
+  - kafka

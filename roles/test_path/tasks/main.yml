@@ -1,0 +1,15 @@
+---
+- name: test path
+#  command: echo {{ workspace_path }}
+  command: pwd
+  register: patt
+
+- debug:
+   msg: "{{patt}}"
+
+#- name: destroy app {{ app_name }}
+#  vars:
+#    app_path: "{{ APP_LOCATION }}"
+#  file:
+#    path={{ app_path }}
+#    state=absent

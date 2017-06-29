@@ -1,0 +1,22 @@
+---
+#- include_vars: "{{ j2_startup_service_conf_file }}"
+
+- name: copy startup shell template to {{ SERVICE_LOCATION }}
+  template:
+    src=startup_service.j2
+    dest={{ SERVICE_LOCATION }}/{{ SHELL_NAME }}/{{ STARTUP_SH }}
+    owner={{ service_user }}
+    group={{ service_group }}
+    mode=0755
+
+
+- name: start service ---> {{ dest_jar_file_path }}
+  become: true
+  become_method: su
+  become_user: "{{ service_user }}"
+  become_flags: '-c'
+  shell: "{{ SERVICE_LOCATION }}/{{ SHELL_NAME }}/{{ STARTUP_SH }}"
+  register: result
+
+- debug:
+    msg: results are--> {{ result }}

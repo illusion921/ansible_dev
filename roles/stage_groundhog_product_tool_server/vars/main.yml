@@ -1,0 +1,22 @@
+---
+project_name: groundhog product tool server
+service_name: groundhog-product-tool-server
+archive_file_path: groundhog-product-tool/groundhog-product-tool-server/target
+archive_file_name: groundhog-product-tool-server-1.0.0-SNAPSHOT.tar.gz
+unarchive_file_name: groundhog-product-tool-server
+
+#Jinja2 template vars
+j2_java_home: "{{ JAVA8_HOME }}"
+j2_process_name: com.pharmaking.groundhog.product.tool.server.StartProductToolServer
+j2_full_process_name: com.pharmaking.groundhog.product.tool.server.StartFullCompleteBarcode
+j2_service_name: "{{ service_name }}"
+
+j2_mysql_dns: "{{ MYSQL_MASTER_DNS }}"
+j2_mysql_port: "{{ MYSQL_PORT }}"
+j2_mysql_user: "{{ MYSQL_MASTER_USERNAME1 }}"
+j2_mysql_passwd: "{{ MYSQL_MASTER_PASSWD1 }}"
+
+config_list:
+  - jdbc
+
+

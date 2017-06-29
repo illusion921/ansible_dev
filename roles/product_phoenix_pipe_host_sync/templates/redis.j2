@@ -1,0 +1,36 @@
+redis.host={{ j2_redis_host }}
+#redis.host=127.0.0.1
+#Port
+redis.port={{ j2_redis_port }}
+#客户端请求超时时间，单位毫秒
+redis.timeout=20000
+#访问密码，默认没有密码
+redis.password={{ j2_redis_passwd }}
+#默认的数据库索引号
+redis.database=0
+#默认的数据库索引号
+redis.usePool=true
+
+#jedis的pool最多可管理的jedis实例
+redis.pool.maxTotal=1024
+#最大的空闲jedis实例
+redis.pool.maxIdle=200
+#最小空闲jedis实例
+redis.pool.minIdle=0
+#当池内没有返回对象时，最大等待时间,设置为10s
+redis.pool.maxWaitMillis=10000
+#当调用borrow Object方法时，是否进行有效性检查
+redis.pool.testOnBorrow=true
+#当调用return Object方法时，是否进行有效性检查
+redis.pool.testOnReturn=true
+
+#testWhileIdle：如果为true，表示有一个idle object evitor线程对idle object进行扫描，如果validate失败，此object会被从pool中drop掉；
+#这一项只有在timeBetweenEvictionRunsMillis大于0时才有意义；
+redis.pool.testWhileIdle=true
+#表示一个对象至少停留在idle状态的最短时间，然后才能被idle object evitor扫描并驱逐；
+#这一项只有在timeBetweenEvictionRunsMillis大于0时才有意义；
+redis.pool.minEvictableIdleTimeMillis=300000
+#表示idle object evitor每次扫描的最多的对象数
+redis.pool.numTestsPerEvictionRun=3
+#表示idle object evitor两次扫描之间要sleep的毫秒数
+redis.pool.timeBetweenEvictionRunsMillis=60000

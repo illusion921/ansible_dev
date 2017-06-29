@@ -1,0 +1,15 @@
+
+ansible_host: 192.168.1.106
+ansible_user: unclejet
+tomcat_user: unclejet
+tomcat_group: unclejet
+service_user: unclejet
+service_group: unclejet
+ansible_ssh_private_key_file: /home/uj/.ssh/id_rsa
+
+SITE_HOME: /home/uj/workspaces/devops/ansible
+TOMCAT_LOCATION: "{{ SITE_HOME }}/tomcat"
+APP_LOCATION: "{{ TOMCAT_LOCATION }}/{{ app_name }}"
+JAVA8_HOME: /home/unclejet/install/jdk1.8.0_131
+JAVA7_HOME: /home/unclejet/install/jdk1.8.0_131
+

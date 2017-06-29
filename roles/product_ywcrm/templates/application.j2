@@ -1,0 +1,37 @@
+zkconnect={{ j2_zk_dns1 }}:{{ j2_zk_port }},{{ j2_zk_dns2 }}:{{ j2_zk_port }},{{ j2_zk_dns3 }}:{{ j2_zk_port }}
+yaoxiaobao_dubbo_zk={{ j2_zk_dns1 }}:{{ j2_zk_port }},{{ j2_zk_dns2 }}:{{ j2_zk_port }},{{ j2_zk_dns3 }}:{{ j2_zk_port }}
+brokers={{ j2_kafka_dns1 }}:{{ j2_kafka_port }},{{ j2_kafka_dns2 }}:{{ j2_kafka_port }},{{ j2_kafka_dns3 }}:{{ j2_kafka_port }}
+prefetchCount=2
+api_url=http://m.ypzdw.com/api/area/getOpenAreas
+customer_proxy_url=https://dreport.ypzdw.com/exterior/data/MjAxNjAwMDAwAhw1HMDEwMjYxMTIx
+sys_root=
+
+myDomainUrl=https://ywcrm.ypzdw.com
+businessId=60557
+loggingUrl=https://passport.ypzdw.com/Main/Login/Index
+loggingOutUrl=https://sales.ypzdw.com/main/home/LoginOut
+
+passportUrl=https://passport.ypzdw.com
+domainUrl=https://ywcrm.ypzdw.com
+
+
+manageLoginUrl=http://m.ypzdw.com
+behaviorRecordTableId=MjAxNzAwMDAwAhw1HMDEwNTMwMzE2
+
+system.url.common.pic.show=https://static.ypzdw.com/Handler/FileHandler.ashx
+system.url.common.pic.del=/crm/plugins/file/delete
+
+env=prd
+
+
+#添加厂家数据
+business_url=https://ceres.ypzdw.com/api/csoInfo/addCsoInfo
+#新增公众号信息地址
+add.account.url=https://ceres.ypzdw.com/api/fans/addPublicAccountRelation
+#同步数据地址
+save.cso.role.url=https://repairman.ypzdw.com/productAgreement/saveCSORole
+save.agreement.url=https://repairman.ypzdw.com/productAgreement/saveAgreement
+
+#营销宝后台地址
+new.system.url=https://services.ypzdw.com/hermes/admin/home
+

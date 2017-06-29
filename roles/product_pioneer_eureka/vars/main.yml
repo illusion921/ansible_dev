@@ -1,0 +1,13 @@
+---
+project_name: pioneer eureka service
+service_name: pioneer-eureka
+jar_file_path: target
+jar_file_name: pioneer-eureka-1.0-SNAPSHOT.jar
+dest_jar_file_path: "{{ SERVICE_LOCATION }}/{{ jar_file_name }}"
+
+#Jinja2 template vars
+j2_java_home: "{{ JAVA7_HOME }}"
+j2_jar_file_path: "{{ dest_jar_file_path }}"
+j2_service_home: "{{ SERVICE_LOCATION }}"
+j2_process_name: "{{ dest_jar_file_path }}"
+j2_service_name: "{{ service_name }}"

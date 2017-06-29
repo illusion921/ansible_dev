@@ -1,0 +1,3 @@
+---
+- name: deploy {{ project_name }}
+  include: "{{ PROJECT_ROOT }}/playbooks/service_has_unarchive_folder/service_deploy_unarchive_no_folder_playbook.yml"

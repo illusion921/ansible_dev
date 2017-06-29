@@ -1,0 +1,17 @@
+---
+
+- name: copy shutdown shell template to {{ SERVICE_LOCATION }}
+  template:
+    src=shutdown_service.j2
+    dest={{ SERVICE_LOCATION }}/{{ SHELL_NAME }}/{{ SHUTDOWN_SH }}
+    owner={{ service_user }}
+    group={{ service_group }}
+    mode=0755
+
+
+- name: shutdown service ---> {{ service_name }}
+  shell: "{{ SERVICE_LOCATION }}/{{ SHELL_NAME }}/{{ SHUTDOWN_SH }}"
+  register: result
+
+- debug:
+    msg: results are--> {{ result }}

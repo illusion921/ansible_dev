@@ -1,0 +1,46 @@
+---
+app_full_name: yao wang CRM
+app_name: ywcrm
+process_name: "{{ APP_LOCATION }}"
+archive_file_path: ywcrm-web/target
+archive_file_name: ywcrm-web-1.0-SNAPSHOT.tar.gz
+unarchive_file_name: ywcrm
+
+j2_java_home: "{{ JAVA8_HOME }}"
+
+tomcat_shutdown_port: 8481
+tomcat_connector_http_port: 8480
+tomcat_connector_ajp_port: 8482
+
+doc_path: /
+doc_base: ywcrm
+
+j2_zk_dns: "{{ ZK_DNS }}"
+j2_zk_port: "{{ ZK_PORT }}"
+
+j2_kafka_dns: "{{ KAFKA_DNS }}"
+j2_kafka_port: "{{ KAFKA_PORT }}"
+
+j2_mysql_dns: "{{ MYSQL_SLAVE_DNS }}"
+j2_mysql_port: "{{ MYSQL_PORT }}"
+j2_mysql_user: "{{ MYSQL_SLAVE_USERNAME }}"
+j2_mysql_passwd: "{{ MYSQL_SLAVE_PASSWD }}"
+
+j2_mongo_db_ip: "{{ MONGO_IP }}"
+j2_mongo_db_port: "{{ MONGO_PORT }}"
+j2_mongo_db_user: "{{ MONGO_USERNAME }}"
+j2_mongo_db_passwd: "{{ MONGO_PASSWD }}"
+
+j2_redis_ip: "{{ REDIS_IP }}"
+j2_redis_port: "{{ REDIS_PORT }}"
+j2_redis_passwd: "{{ REDIS_PASSWD1 }}"
+
+j2_thrift_ip: "{{ THRIFT_IP0 }}"
+j2_thrift_port: "{{ THRIFT_PORT01 }}"
+
+config_list:
+  - application
+  - jdbc
+  - mongo_db
+  - redis
+  - thriftClient

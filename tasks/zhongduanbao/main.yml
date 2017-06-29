@@ -1,0 +1,47 @@
+---
+- name: initialize app running container if needed
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_initialize.yml"
+
+- name: custom server xml config add context {{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/custom_server_xml_add_context_for_war.yml"
+
+- name: custom server xml config modify HTTP Connector {{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}
+  replace:
+    path: "{{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}"
+    regexp: 'redirectPort="8443" />'
+    replace: 'redirectPort="8443"  parseBodyMethods = "POST,PUT,DELETE" URIEncoding="UTF-8" />'
+
+- name: custom config {{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ WEB_XML }}
+  blockinfile:
+    path: "{{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ WEB_XML }}"
+    insertbefore: "Default Session Configuration"
+    content: |
+      <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+          <init-param>
+            <param-name>cors.allowed.headers</param-name>
+            <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,version,appId,token</param-value>
+           </init-param>
+      </filter>
+      <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+      </filter-mapping>
+
+- name: stop {{ app_name }} if {{ app_name }} is running
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_shutdown.yml"
+
+- name: delete war file--> {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/yaoyi-message.war
+  file:
+    path={{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/yaoyi-message.war
+    state=absent
+
+- name: copy lastest war app package to tomcat
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_deploy_war_package.yml"
+
+- name: rename war package to yaoyi
+  command: mv {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/{{ war_file_name }} {{ APP_LOCATION }}/{{ TOMCAT_WEBAPPS_NAME }}/yaoyi-message.war
+
+- name: start {{ app_name }}
+  include: "{{ PROJECT_ROOT }}/tasks/tomcat/app_startup.yml"

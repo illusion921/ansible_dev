@@ -1,0 +1,6 @@
+---
+- name: add context under host tag in conf/server.xml
+  replace:
+    path: "{{APP_LOCATION}}/{{ TOMCAT_CONF_NAME }}/{{ SERVER_XML }}"
+    regexp: 'redirectPort="(\d+)" />'
+    replace: 'redirectPort="\1" URIEncoding="UTF-8" />'

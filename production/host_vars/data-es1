@@ -1,0 +1,4 @@
+ansible_host: 172.31.30.146
+
+JAVA7_HOME: /ywkj/jdk
+JAVA8_HOME: /ywkj/jdk1.8.0_60

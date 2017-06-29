@@ -1,0 +1,22 @@
+---
+SITE_HOME: /home/uj/workspaces/devops/ansible
+PUBLISH_HOME: "{{ SITE_HOME }}/publish"
+PUBLISH_PACKAGE_HOME: "{{ PUBLISH_HOME }}/package"
+PROJECT_ROOT: "{{ SITE_HOME }}/deployment"
+PUBLISH_TOOL_HOME: "{{ PUBLISH_PACKAGE_HOME }}/tools"
+
+app_full_name: zhong duan bao
+app_name: yaoyi-message
+process_name: yaoyi-message
+war_file_name: yaoyi-message.war
+
+tomcat_shutdown_port: 8051
+tomcat_connector_http_port: 8050
+tomcat_connector_ajp_port: 8052
+
+custom_config: false
+
+config_list:
+  - dubbo
+  - elasticsearch
+  - jdbc

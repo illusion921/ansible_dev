@@ -1,0 +1,14 @@
+SITE_HOME: /ywkj
+
+PUBLISH_HOME: "{{ SITE_HOME }}/publish"
+
+#this is jenkins current project job workspace pwd, ansible will run at this location.
+PUBLISH_PACKAGE_HOME: "."
+
+PUBLISH_TOOL_HOME: "{{ PUBLISH_HOME }}/ansible/tools"
+
+PROJECT_ROOT: "{{ PUBLISH_HOME }}/ansible/deployment"
+
+SERVICE_HOME: "{{ SITE_HOME }}/services"
+
+LOGS_HOME: "{{ SITE_HOME }}/logs"

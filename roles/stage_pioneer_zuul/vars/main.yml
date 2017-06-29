@@ -1,0 +1,17 @@
+---
+project_name: pioneer zuul service
+service_name: pioneer-zuul
+jar_file_path: target
+jar_file_name: janus-gateway-1.0-SNAPSHOT.jar
+dest_jar_file_path: "{{ SERVICE_LOCATION }}/{{ jar_file_name }}"
+
+#Jinja2 template vars
+j2_java_home: "{{ JAVA8_HOME }}"
+j2_jar_file_path: "{{ dest_jar_file_path }}"
+j2_service_home: "{{ SERVICE_LOCATION }}"
+j2_process_name: "{{ dest_jar_file_path }}"
+j2_logs_file: "{{ LOGS_HOME }}/{{ service_name }}.log"
+j2_service_name: "{{ service_name }}"
+
+
+
